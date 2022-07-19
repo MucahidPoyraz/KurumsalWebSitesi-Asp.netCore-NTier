@@ -1,0 +1,120 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model Product
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">ÜRÜN EKLEME SAYFASI</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    @if (ViewBag.state == "update") {<form asp-controller="AdminProduct" asp-action="ProductGuncelle" enctype="multipart/form-data">
+                                         <div class="card-body">
+                                             <div class="form-group">
+                                                 <label for="exampleInputEmail1">BAŞLIK GİRİNİZ</label>
+                                                 <input type="text" class="form-control" asp-for="Header" placeholder="başlik giriniz">
+                                                 <span asp-
+                                                       validation-for="Header" style="color:crimson"></span>
+                                             </div>
+                                             <div class="form-group">
+                                                 <label>KATEGORİ SEÇİNİZ</label>
+
+                                                 @Html.DropDownListFor(x => x.ProductCategoryId, (List<SelectListItem>)ViewBag.ProductCategory, new { @class = "form-control" })
+
+                                                 <span asp-validation-for="ProductCategoryId" style="color:crimson"></span>
+                                             </div>
+                                             <div class="form-group">
+                                                 <label for="exampleInputEmail1">ALT BAŞLIK GİRİNİZ</label>
+                                                 <input type="text" class="form-control" asp-for="SubTitle" placeholder="alt başlik giriniz">
+                                                 <span asp-validation-for="SubTitle" style="color:crimson"></span>
+                                             </div>
+
+                                             <div class="form-group">
+                                                 <label for="exampleInputEmail1">İÇERİK GİRİNİZ</label>
+                                                 <input type="text" class="form-control" asp-for="Content" placeholder="alt başlik giriniz">
+                                                 <span asp-validation-for="Content" style="color:crimson"></span>
+                                             </div>
+                                             <div class="form-group">
+                                                 <label for="exampleInputEmail1" onchange="PreviewImage();">RESİM SEÇİNİZ</label>
+                                                 <input type="text" asp-for="ImageUrlOne" value="@Model.ImageUrlOne" name="ImageUrlOne" hidden>
+                                                 <input type="file" class="form-control uploadImage" asp-for="ImageUrlOne" placeholder="resim seçiniz" onchange='openFile(event)'>
+                                                 <div>
+                                                     <img id='output' style="width : 100px;height:100px" src="/images/imgs/@Model.ImageUrlOne"/>
+                                                 </div>
+                                                 <span id="error-message" class="validation-error-label"></span>
+                                                 <span asp-validation-for="ImageUrlOne" id="ImageUrl" style="color:crimson"></span>
+                                             </div>
+
+
+
+
+
+
+                                         </div>
+
+    <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">ÜRÜN GUNCELLE</button>
+    </div>
+</form> }
+    else
+    {
+        <form asp-controller="AdminProduct" asp-action="ProductEkle" enctype="multipart/form-data">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">BAŞLIK GİRİNİZ</label>
+                    <input type="text" class="form-control " asp-for="Header" placeholder="başlik giriniz">
+                    <span asp-validation-for="Header" style="color:crimson"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>KATEGORİ SEÇİNİZ</label>
+
+                    <select class="form-control" asp-items="@ViewBag.ProductCategory" name="@(nameof(ViewBag.ProductCategoryId))">
+                        <option value="0">Bir departman seçiniz</option>
+                    </select>
+
+                    <span asp-validation-for="ProductCategoryId" style="color:crimson"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">ALT BAŞLIK GİRİNİZ</label>
+                    <input type="text" class="form-control" asp-for="SubTitle" placeholder="alt başlik giriniz">
+                    <span asp-validation-for="SubTitle" style="color:crimson"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">İÇERİK GİRİNİZ</label>
+                    <input type="text" class="form-control" asp-for="Content" placeholder="alt başlik giriniz">
+                    <span asp-validation-for="Content" style="color:crimson"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1"  onchange="PreviewImage();">RESİM SEÇİNİZ</label>
+                    <input type="file" class="form-control uploadImage" asp-for="ImageUrlOne" id="ImageUrlOne" placeholder="resim seçiniz" onchange='openFile(event)'>
+                    <div>
+                        <img id='output' style="width : 100px;height:100px" />
+                    </div>
+                    <span id="error-message" class="validation-error-label"></span>
+                    <span asp-validation-for="ImageUrlOne" style="color:crimson"></span>
+                </div>
+
+                
+
+
+
+            </div>
+
+            <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">ÜRÜN EKLE</button>
+            </div>
+        </form>
+    }
+
+</div>

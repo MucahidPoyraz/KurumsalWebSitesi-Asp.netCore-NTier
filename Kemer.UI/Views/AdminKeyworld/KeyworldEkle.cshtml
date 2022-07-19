@@ -1,0 +1,154 @@
+﻿
+@{
+    Layout = "_AdminLayout";
+}
+
+@model Keyworld
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">KEYWOLRD EKLEME SAYFASI</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    @if (ViewBag.state == "update")
+    {
+        <form asp-controller="AdminKeyworld" asp-action="KeyworldGuncelle" enctype="multipart/form-data">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">description ekle</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="description" placeholder="description  giriniz">
+                        <span asp-validation-for="description" style="color:crimson"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">keywords ekle</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="keywords" placeholder="keywords  giriniz">
+                        <span asp-validation-for="keywords" style="color:crimson"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">author ekle</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="author" placeholder="description  giriniz">
+                        <span asp-validation-for="author" style="color:crimson"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">title ekle</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="title" placeholder="description  giriniz">
+                        <span asp-validation-for="title" style="color:crimson"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1" onchange="PreviewImage();">ICON SEÇİNİZ</label>
+
+                    <input type="file" class="form-control uploadImage" asp-for="icon" id="icon" placeholder="resim seçiniz" onchange='openFile(event)'>
+                    <input type="text" asp-for="icon" value="@Model.icon" name="icon" hidden>
+                    <span id="error-message" class="validation-error-label"></span>
+                    <span asp-validation-for="icon" style="color:crimson"></span>
+                </div>
+                <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">KEYWORLD GUNCELLE</button>
+                </div>
+            </div>
+        </form>}
+    else
+    {
+        <form asp-controller="AdminKeyworld" asp-action="KeyworldEkle" enctype="multipart/form-data">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">description ekle</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="description" placeholder="description  giriniz">
+                        <span asp-validation-for="description" style="color:crimson"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">keywords ekle</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="keywords" placeholder="keywords  giriniz">
+                        <span asp-validation-for="keywords" style="color:crimson"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">author ekle</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="author" placeholder="author  giriniz">
+                        <span asp-validation-for="author" style="color:crimson"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">title ekle</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="title" placeholder="title  giriniz">
+                        <span asp-validation-for="title" style="color:crimson"></span>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1" onchange="PreviewImage();">ICON SEÇİNİZ</label>
+
+                    <input type="file" class="form-control uploadImage" asp-for="icon" id="icon" placeholder="resim seçiniz" onchange='openFile(event)'>
+                    <div>
+                        <img id='output' style="width : 100px;height:100px" />
+                    </div>
+                    <span id="error-message" class="validation-error-label"></span>
+                    <span asp-validation-for="icon" style="color:crimson"></span>
+                </div>
+
+
+
+                <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">KEYWORLD EKLE</button>
+                </div>
+            </div>
+        </form>}
+
+</div>
+

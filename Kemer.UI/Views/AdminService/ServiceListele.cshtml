@@ -1,0 +1,117 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model List<Service>
+
+@if (TempData["Ekleme"] != null)
+{
+
+<div class="alert success" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Ekleme"]
+</div>
+}
+
+@if (TempData["Guncellendi"] != null)
+{
+
+<div class="alert info" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Guncellendi"]
+</div>
+}
+
+@if (TempData["Silindi"] != null)
+{
+
+<div class="alert warning" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Silindi"]
+</div>
+}
+
+
+<div style="width:100%">
+    <a asp-action="ServiceEkle" asp-controller="AdminService" class="btn btn-primary">Hizmet Ekle</a>
+    <a asp-action="ServiceCategoryListele" asp-controller="AdminServiceCategory" class="btn btn-secondary">Hizmet kategorileri</a>
+</div>
+<br />
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>ImageUrlOne</th>
+
+                                <th>HeaderOne</th>
+                                <th>SubtitleOne</th>
+                                <th>ServiceCategoryID</th>
+                                <th>VideoLink</th>
+                                <th>HeaderTwo</th>
+                                <th>SubtitleTwo</th>
+
+
+                                <th>İŞLEMLER</th>
+                                <th>DETAYLAR</th>
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                        <tbody>
+                            <tr>
+                                <td width="100" height="100" align="center"><img src="/images/imgs/@item.ImageUrlOne" height="100" width="100"></td>
+
+                                <td>@item.HeaderOne</td>
+
+                                <td>@item.SubtitleOne</td>
+                                <td>@item.ServiceCategory.ServiceCategoryName</td>
+                                <td>@item.VideoLink</td>
+                                <td>@item.HeaderTwo</td>
+                                <td>@item.SubtitleTwo</td>
+
+
+                                <td>
+                                    <a asp-action="ServiceSil" asp-controller="AdminService" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Silmek istediginize emin misiniz');">Hizmet Sil</a>
+                                    <a asp-action="ServiceGuncelle" asp-controller="AdminService" asp-route-id="@item.Id" class="btn btn-info">Hizmet Guncelle</a>
+                                </td>
+                                <td> <a asp-action="ServiceContentListele" asp-controller="AdminServiceContent" asp-route-id="@item.Id" class="btn btn-info">Hizmet Detay</a></td>
+                            </tr>
+                        </tbody>
+                        }
+
+                        <tfoot>
+                            <tr>
+                                <th>ImageUrlOne</th>
+
+                                <th>HeaderOne</th>
+                                <th>SubtitleOne</th>
+                                <th>ServiceCategoryID</th>
+                                <th>VideoLink</th>
+                                <th>HeaderTwo</th>
+                                <th>SubtitleTwo</th>
+
+
+                                <th>İŞLEMLER</th>
+                                <th>DETAYLAR</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+    </div>
+</section>

@@ -1,0 +1,15 @@
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\bin\Release\netcoreapp3.1\Kemer.Dal.deps.json
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\bin\Release\netcoreapp3.1\Kemer.Dal.runtimeconfig.json
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\bin\Release\netcoreapp3.1\Kemer.Dal.runtimeconfig.dev.json
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\bin\Release\netcoreapp3.1\Kemer.Dal.dll
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\bin\Release\netcoreapp3.1\Kemer.Dal.pdb
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\bin\Release\netcoreapp3.1\Kemer.Entities.dll
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\bin\Release\netcoreapp3.1\Kemer.Entities.pdb
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\obj\Release\netcoreapp3.1\Kemer.Dal.csprojAssemblyReference.cache
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\obj\Release\netcoreapp3.1\Kemer.Dal.AssemblyInfoInputs.cache
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\obj\Release\netcoreapp3.1\Kemer.Dal.AssemblyInfo.cs
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\obj\Release\netcoreapp3.1\Kemer.Dal.csproj.CoreCompileInputs.cache
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\obj\Release\netcoreapp3.1\Kemer.Dal.csproj.CopyComplete
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\obj\Release\netcoreapp3.1\Kemer.Dal.dll
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\obj\Release\netcoreapp3.1\Kemer.Dal.pdb
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Dal\obj\Release\netcoreapp3.1\Kemer.Dal.genruntimeconfig.cache

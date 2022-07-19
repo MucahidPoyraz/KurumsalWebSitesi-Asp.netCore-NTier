@@ -1,0 +1,113 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+@model List<Product>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Kurumsam Web Sitesi">
+    <meta name="keywords" content="Kurumsal, Seo tabanlı, Dinamik Web sitesi">
+    <meta name="author" content="Uygulamabu">
+
+    <meta name="robots" content="index, archive">
+
+    <title>Kurumsal2 Dimaik Web sitesi | Urunler</title>
+</head>
+<body>
+
+    <div class="d-flex flex-column w-100">
+        <div class="page-title d-flex align-items-center bg-image py-5" data-img-src="/images/upload/page-title-bg-20.jpg" style="background-image: url(&quot;/images/upload/page-title-bg-20.jpg&quot;);">
+            <div class="container page-title-container">
+                <div class="row py-5">
+                    <div class="col text-center">
+
+                        <h1 class="display-3 font-weight-800 text-white mb-3">
+                            ÜRÜNLERİMİZ
+                        </h1>
+
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                                <div class="lead text-white-75">
+                                    En iyi ürünler en uygun fiyatlar ile
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content pb-0">
+
+        <!-- Info box style 1 -->
+        <!-- Info box style 2 -->
+        <div class="section bg-light py-5">
+            <div class="container">
+
+                <div class="row pt-4 pb-5 my-5">
+                    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
+                        <div class="text-center">
+
+                            <h2 class="h1 section-title-3 font-weight-800">Bütün Ürünlerimiz</h2>
+
+                            <div class="lead-sm pt-2">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-5">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-6 col-lg-4">
+
+                            <!-- Info box style 2 -->
+                            <div class="card info-box-2 border-0 shadow">
+                                <img class="card-img" src="/images/imgs/@item.ImageUrlOne" alt="Info box">
+                                <div class="card-img-overlay d-flex align-items-end">
+                                    <div class="info-box-details w-100">
+                                        <div class="info-box-caption">
+                                            <h5 class="card-title text-white font-weight-700 mb-0">@item.Header</h5>
+
+                                        </div>
+                                        <div class="info-box-btn pt-3" style="margin-bottom: -54px;">
+                                            <div class="info-box-btn-inner d-flex justify-content-between">
+                                                <a asp-action="Index" asp-controller="ProductDetail" asp-route-id="@item.Id" class="btn btn-round btn-dark btn-sm mb-2">İncele</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Info box style 3 -->
+        <!-- Info box style 4 -->
+        <!-- Info box style 5 -->
+        <!-- Call to action section -->
+
+
+    </div>
+
+
+</body>
+</html>

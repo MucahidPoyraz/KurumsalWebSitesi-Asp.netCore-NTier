@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model BlogCategory
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">BLOG KATEGORİ EKLEME SAYFASI</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+
+    @if (ViewBag.state == "update") { 
+<form asp-controller="AdminBlogCategory" asp-action="BlogCategoryGuncelle" enctype="multipart/form-data">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="exampleInputEmail1">BLOG KATEGORİ ADI</label>
+            <input type="text" class="form-control" asp-for="BlogCategoryName" id="exampleInputEmail1" placeholder="katagori isim">
+            <span asp-validation-for="BlogCategoryName" style="color:crimson"></span>
+        </div>
+
+       
+
+    </div>
+
+    <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">BLOG KATEGORİ GUNCELLE</button>
+    </div>
+</form>}
+    else
+    {
+        <form asp-controller="AdminBlogCategory" asp-action="BlogCategoryEkle" enctype="multipart/form-data">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">BLOG KATEGORİ ADI</label>
+                    <input type="text" class="form-control" asp-for="BlogCategoryName" id="exampleInputEmail1" placeholder="kategori isim">
+                    <span asp-validation-for="BlogCategoryName" style="color:crimson"></span>
+                </div>
+
+                
+
+            </div>
+
+            <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">BLOG KATEGORİ EKLE</button>
+            </div>
+        </form>
+    }
+
+
+
+</div>

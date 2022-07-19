@@ -1,0 +1,110 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model List<BayiForm>
+
+
+@if (TempData["Ekleme"] != null)
+{
+
+<div class="alert success" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Ekleme"]
+</div>
+}
+
+@if (TempData["Guncellendi"] != null)
+{
+
+<div class="alert info" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Guncellendi"]
+</div>
+}
+
+@if (TempData["Silindi"] != null)
+{
+
+<div class="alert warning" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Silindi"]
+</div>
+}
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+
+                                <th>Unvan</th>
+                                <th>FaaliyetYılı</th>
+                                <th>Ad soyad</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Adress</th>
+                                <th>Sehir</th>
+                                <th>WebSitesi</th>
+
+
+                                <th>İŞLEMLER</th>
+
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                        <tbody>
+                            <tr>
+
+                                <td>@item.Unvan</td>
+                                <td>@item.FaaliyetYılı</td>
+                                <td>@item.Ad @item.Soyad</td>
+                                <td>@item.Email</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Adress</td>
+                                <td>@item.Sehir</td>
+                                <td>@item.WebSitesi</td>
+
+
+                                <td>
+                                    <a asp-action="BayiFormSil" asp-controller="AdminBayiForm" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Silmek istediginize emin misiniz');">Bayi Sil</a>
+
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        }
+
+                        <tfoot>
+                            <tr>
+                                <th>Unvan</th>
+                                <th>FaaliyetYılı</th>
+                                <th>Ad soyad</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Adress</th>
+                                <th>Sehir</th>
+                                <th>WebSitesi</th>
+                                <th>İŞLEMLER</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+    </div>
+</section>

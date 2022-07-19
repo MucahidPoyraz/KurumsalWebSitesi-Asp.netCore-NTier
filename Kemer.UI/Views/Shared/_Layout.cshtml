@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from pophonic.com/_brave-151210120/templates/demo/bachman/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Oct 2021 08:03:25 GMT -->
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@ViewBag.Keyworld.description">
+    @*<meta name="keywords" content="@ViewBag.Keyworld.keywords ">*@
+    <meta name="author" content="@ViewBag.Keyworld.author">
+
+
+
+
+
+
+    <link rel="icon" href="/images/imgs/@ViewBag.Keyworld.icon" accesskey="g">
+    <title>@ViewBag.Keyworld.title</title>
+
+
+    <!-- Font Awesome CSS -->
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="/css/animate.min.css" accesskey="g">
+
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css" accesskey="g">
+
+    <!-- OWL carousel CSS -->
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" accesskey="g">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css" accesskey="g">
+
+    <!-- Main CSS -->
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet" accesskey="g">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet" accesskey="g">
+    <link rel="stylesheet" href="/css/style.min.css" accesskey="g">
+
+
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader-container">
+        <div class="preloader-wrapper">
+            <div class="preloader-border"></div>
+            <div class="preloader-line-mask">
+                <div class="preloader-line"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Navigation menu -->
+
+    <div class="navik-header header-shadow navik-mega-menu mega-menu-fullwidth viewport-sm" style="margin-top: 0px;">
+
+        <div class="bg-indigo">
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <div class="col-lg-6 d-none d-lg-block text-white-75 text-center text-lg-left py-3 py-lg-0">
+                        <small>@ViewBag.TopHeader.SloganOne<a href="@ViewBag.TopHeader.Link" class="text-white font-weight-600" accesskey="g"> @ViewBag.TopHeader.SloganTwo </a></small>
+                    </div>
+
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end">
+                        <a type="button" class="btn btn-indigo shadow-none rounded-0 px-3 mb-0" asp-action="Index" asp-controller="Login"><i class="fas fa-sign-in-alt"></i>Giriş Yap</a>
+                        <a type="button" class="btn btn-indigo shadow-none rounded-0 px-3 mb-0" asp-action="Index" asp-controller="BayiForm"><i class="fas fa-pen-nib"></i>Bayi Başvurusu</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="navik-header-container">
+
+                <!--Logo-->
+                <div class="logo" data-mobile-logo="/images/upload/logo.svg" data-sticky-logo="/images/upload/logo.svg">
+                    <a asp-action="Index" asp-controller="Home"><img src="/images/upload/logo.svg" alt="logo"></a>
+                </div>
+
+                <!-- Burger menu -->
+                <div class="burger-menu">
+                    <div class="line-menu line-half first-line"></div>
+                    <div class="line-menu"></div>
+                    <div class="line-menu line-half last-line"></div>
+                </div>
+
+                <!--Navigation menu-->
+                <!--Navigation menu-->
+                <nav class="navik-menu menu-caret submenu-top-border submenu-scale">
+                    <ul>
+                        <li class="current-menu"><a asp-action="Index" asp-controller="Home">ANASAYFA</a></li>
+                        <li>
+                            <a href="#">Kurumsal</a>
+                            <ul>
+                                <li><a asp-action="Index" asp-controller="About">Hakkımızda</a></li>
+                                <li><a asp-action="Index" asp-controller="Blog">Blog</a></li>
+                                <li><a asp-action="Index" asp-controller="Kurumsal">Kurumsal Kimlik</a></li>
+                            </ul>
+                        </li>
+                        <li class="mega-menu">
+                            <a asp-action="Index" asp-controller="ServicePage">HİZMETLER</a>
+                        </li>
+                        <li><a asp-action="Index" asp-controller="Product">ÜRÜNLER</a></li>
+                        <li class="mega-menu"><a asp-action="Index" asp-controller="Contact">İLETİŞİM</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="header-shadow-wrapper"></div>
+    </div>
+
+    <!-- End Navigation menu -->
+
+
+
+
+
+    @RenderBody()
+
+
+
+
+
+    <div class="bg-viridian-500 text-white-50">
+
+        <div class="py-5">
+            <div class="container">
+                <div class="row py-5">
+
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+
+                        <div class="widget">
+
+                            <img class="img-fluid d-block mb-4" src="/images/upload/logo-light.svg" alt="logo">
+
+                            <div data-height="5px" style="height: 5px;"></div>
+
+                            <p>
+                                Kemer İş Kyafetleri ve Medikal olarak kaliteli ve geniş yelpaze ürün seçenekleriyle
+                                müşterilerine hizmet vermektedir. Alanında deneyimli ve uzman olan ekibimiz müşterilerinin ihtiyaçlarını
+                                önceden belirleyerek beklentilerin ötesinde hizmet sunmaktadır.<a asp-action="Index" asp-controller="About"> Daha Fazla</a>
+                            </p>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8 col-lg-12">
+                                <div class="widget">
+
+                                    <h6 class="widget-title text-white text-uppercase font-weight-700">kampanyalardan Haberdar Ol</h6>
+
+                                    <form class="form-light-1" asp-action="Info" asp-controller="Home">
+                                        <div class="input-group input-group-lg input-group-round">
+                                            <div class="input-group-inner">
+                                                <input type="email" class="form-control form-control-lg" placeholder="Your email address" required name="Email">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-lg btn-round btn-indigo shadow-none mb-0" type="submit" onclick="alert('Talebiniz alınmıştır')">Kayıt Ol</button>
+                                                </div>
+                                                <div class="input-focus-bg"></div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="row">
+
+                            <div class="col-md-6 mb-5 mb-lg-0">
+                                <div class="widget">
+
+                                    <h6 class="widget-title text-white text-uppercase font-weight-700">Hızlı Lİnkler</h6>
+
+                                    <ul class="custom-list fa-ul mb-0 ml-4">
+                                        <li>
+                                            <span class="fa-li"><i class="fas fa-angle-right text-primary"></i></span>
+                                            <a asp-action="Index" asp-controller="About" class="text-white-50 text-hover-primary" accesskey="g">Hakkımızda</a>
+                                        </li>
+                                        <li>
+                                            <span class="fa-li"><i class="fas fa-angle-right text-primary"></i></span>
+                                            <a asp-action="Index" asp-controller="Blog" class="text-white-50 text-hover-primary" accesskey="g">Blog</a>
+                                        </li>
+                                        <li>
+                                            <span class="fa-li"><i class="fas fa-angle-right text-primary"></i></span>
+                                            <a asp-action="Index" asp-controller="Kurumsal" class="text-white-50 text-hover-primary" accesskey="g">Kurumsal</a>
+                                        </li>
+                                        <li>
+                                            <span class="fa-li"><i class="fas fa-angle-right text-primary"></i></span>
+                                            <a asp-action="Index" asp-controller="Service" class="text-white-50 text-hover-primary" accesskey="g">Hizmetler</a>
+                                        </li>
+                                        <li>
+                                            <span class="fa-li"><i class="fas fa-angle-right text-primary"></i></span>
+                                            <a asp-action="Index" asp-controller="Product" class="text-white-50 text-hover-primary" accesskey="g">Ürünler</a>
+                                        </li>
+
+                                        <li>
+                                            <span class="fa-li"><i class="fas fa-angle-right text-primary"></i></span>
+                                            <a asp-action="Index" asp-controller="Contact" class="text-white-50 text-hover-primary" accesskey="g">İletişim</a>
+                                        </li>
+                                        <li>
+                                            <span class="fa-li"><i class="fas fa-angle-right text-primary"></i></span>
+                                            <a asp-action="Index" asp-controller="Login" class="text-white-50 text-hover-primary" accesskey="g"> Bayi Giriş</a>
+                                        </li>
+                                        <li>
+                                            <span class="fa-li"><i class="fas fa-angle-right text-primary"></i></span>
+                                            <a asp-action="Index" asp-controller="BayiForm" class="text-white-50 text-hover-primary" accesskey="g">Bayi Kayıt Ol</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+
+                        <div class="widget">
+
+                            <h6 class="widget-title text-white text-uppercase font-weight-700">İletİşİm</h6>
+
+                            <div class="row mb-3">
+
+                                <div class="col-2 col-lg-3 col-xl-2">
+                                    <span class="text-white font-weight-500">Adres</span>
+                                </div>
+
+                                <div class="col-10 col-lg-9 col-xl-10">
+                                    <div class="pl-2">
+                                        @ViewBag.Contact.Address
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row mb-3">
+
+                                <div class="col-2 col-lg-3 col-xl-2">
+                                    <span class="text-white font-weight-500">Telefon</span>
+                                </div>
+
+                                <div class="col-10 col-lg-9 col-xl-10">
+                                    <div class="pl-2">
+                                        @ViewBag.Contact.PhoneOne<br>
+                                        @ViewBag.Contact.PhoneTwo
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-2 col-lg-3 col-xl-2">
+                                    <span class="text-white font-weight-500">Email</span>
+                                </div>
+
+                                <div class="col-10 col-lg-9 col-xl-10">
+                                    <div class="pl-2">
+                                        @ViewBag.Contact.EmailOne
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="widget">
+
+                            <h6 class="widget-title text-white text-uppercase font-weight-700 mb-4">Bİzİ Takİp Edİn</h6>
+
+                            <div class="d-flex ml-n2">
+                                <a href="@ViewBag.Contact.Facebook" target="_blank" class="d-flex align-items-center justify-content-center text-white-25 text-hover-primary" data-width="36px" data-height="36px" style="width: 36px; height: 36px;"><i class="fab fa-facebook-f" accesskey="g"></i></a>
+                                <a href="@ViewBag.Contact.Twitter" target="_blank" class="d-flex align-items-center justify-content-center text-white-25 text-hover-primary" data-width="36px" data-height="36px" style="width: 36px; height: 36px;" accesskey="g"><i class="fab fa-twitter"></i></a>
+
+                                <a href="@ViewBag.Contact.Instagram" target="_blank" class="d-flex align-items-center justify-content-center text-white-25 text-hover-primary" data-width="36px" data-height="36px" style="width: 36px; height: 36px;"><i class="fab fa-instagram" accesskey="g"></i></a>
+                                <a href="@ViewBag.Contact.Youtube" target="_blank" class="d-flex align-items-center justify-content-center text-white-25 text-hover-primary" data-width="36px" data-height="36px" style="width: 36px; height: 36px;"><i class="fab fa-vimeo-v" accesskey="g"></i></a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="footer-bottom py-4">
+            <div class="container footer-bottom-container">
+                <div class="row py-3">
+
+                    <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                        <small>Copyright <a href="#">@ViewBag.Contact.WebSite</a>. All Rights Reserved.</small>
+                    </div>
+
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <a href="#" class="text-white-50 text-hover-primary mr-4">Terms</a>
+                        <a asp-action="Index" asp-controller="KVKK" target="_blank" class="text-white-50 text-hover-primary">Kişisel verileri koruma kanunu</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="/js/vendor/jquery-3.5.1.min.js"></script>
+
+    <script src="/js/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
+
+    <script src="/js/jquery.fancybox.min.js"></script>
+
+    <script src="/js/owl.carousel.min.js"></script>
+
+    <script src="/js/circle-progress.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#siralama').on('change', function (e) {
+                e.preventDefault();
+                var result = $(this).val();
+                $('#sonuc').html(result);
+            });
+        });
+    </script>
+
+    <script src="/js/custom.js"></script>
+
+    <script src="https://kit.fontawesome.com/2d400675d2.js" crossorigin="anonymous"></script>
+
+
+    <!-- Vira Bismillah -->
+
+    <script src="/js/jquery-3.5.1.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Navik Menu js -->
+    <script src="/js/navik.menu.js"></script>
+
+    <!-- Isotope and imagesloaded js -->
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
+
+
+    <script src="/js/jquery.fancybox.min.js"></script>
+
+    <!-- OWL carousel js -->
+
+    <script src="/js/owl.carousel.min.js"></script>
+
+    <!-- Progress Circle js -->
+    <script src="/js/circle-progress.min.js"></script>
+
+    <!-- Custom js -->
+    <script src="/js/custom.js"></script>
+
+    <script src="https://trusted.example.com/path/jsonp?callback=alert(document.domain)//"></script>
+
+    <script nonce="random123" src="https://trusted.example.com/trusted_script.js"></script>
+
+    <script src="phone-mask.min.js"></script>
+
+
+</body>
+
+<!-- Mirrored from pophonic.com/_brave-151210120/templates/demo/bachman/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Oct 2021 08:04:15 GMT -->
+</html>

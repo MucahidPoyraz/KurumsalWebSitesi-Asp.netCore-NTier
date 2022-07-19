@@ -1,0 +1,80 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<body class="bg-image bg-fixed" data-img-src="/images/upload/access-page-bg-01.jpg" style="background-image: url(&quot;/images/upload/access-page-bg-01.jpg&quot;);">
+
+    <!-- Preloader -->
+    <!-- Content -->
+    <br />
+    <br />
+    <br />
+    <div class="container-fluid">
+        <div class="row min-vh-100 align-content-between">
+
+
+
+            <div class="col-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+                            <div class="px-xl-4">
+                                <div class="bg-white rounded-ultra shadow-lg px-4 py-5 p-md-5">
+
+                                    <div class="mb-4 text-center">
+                                        <img src="/images/upload/reset-01.svg" alt="Parola Sıfırla" data-width="64px" data-height="64px" style="width: 64px; height: 64px;">
+                                    </div>
+
+                                    <div class="pb-1"></div>
+
+                                    <h3 class="section-title-4 text-center font-weight-800 mb-4">
+                                        Password Reset
+                                        <div class="title-divider-round"></div>
+                                    </h3>
+
+                                    <form>
+
+                                        <div class="input-group input-group-lg input-group-round mb-4">
+                                            <label class="text-uppercase px-3">E-MAİL ADRESİNİZİ GİRİNİZ</label>
+                                            <div class="input-group-inner">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text input-group-icon"><i class="far fa-envelope"></i></span>
+                                                </div>
+                                                <input type="email" class="form-control form-control-lg" placeholder="Örneğin; cesureymen@gmailçcom">
+                                                <div class="input-focus-bg"></div>
+                                            </div>
+                                        </div>
+
+                                        <button onclick="myFunction()" type="submit" class="btn btn-lg btn-round btn-primary btn-block"><i class="fas fa-unlock-alt"></i>Parola Sıfırla</button>
+
+                                        <label class="w-100 text-center py-2 mb-0">
+                                            Remember your password? <a asp-action="Index" asp-controller="Login">Giriş yap</a>
+                                        </label>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script>
+        function myFunction() {
+            var txt;
+            if (confirm("Email Hatalı veya Hesabınız aktif degil")) {
+                txt = "You pressed OK!";
+            } else {
+                txt = "You pressed Cancel!";
+            }
+            document.getElementById("demo").innerHTML = txt;
+        }
+    </script>
+
+</body>

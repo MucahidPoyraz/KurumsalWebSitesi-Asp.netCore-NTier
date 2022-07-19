@@ -1,0 +1,116 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model Blog
+
+    <div class="w-100">
+        <div class="w-100">
+            <div class="page-title page-header-block-height d-flex align-items-center bg-image py-5" data-img-src="/images/upload/blog-single-featured-img-01.jpg" style="background-image: url(&quot;/images/upload/blog-single-featured-img-01.jpg&quot;);">
+                <div class="container page-title-container">
+                    <div class="row py-5">
+                        <div class="col-lg-8 offset-lg-2 text-center">
+
+                            
+
+                            <h1 class="display-4 font-weight-800 text-white mb-3">@ViewBag.Blog.Header</h1>
+
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb breadcrumb-light-2 justify-content-center mb-0">
+                                    <li class="breadcrumb-item text-uppercase"><a href="#">@ViewBag.Blog.CreateDate</a></li>
+                                    <li class="breadcrumb-item text-uppercase"><a href="#">@ViewBag.Blog.AuthorName</a></li>
+                                </ol>
+                            </nav>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <!-- Blog content section -->
+        <div class="section pt-4 pb-5">
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-lg-10 offset-lg-1">
+
+                        <!-- Text content -->
+                        <div class="pt-4 pb-5">
+
+                            <h4>@ViewBag.Blog.SubTitle</h4>
+
+                            <p>@ViewBag.Blog.ContentOne</p>
+
+                        </div>
+
+                        <!-- Slider images -->
+                        <div id="carouselIndicatorsCircle" class="carousel slide gallery-slides arrow-nav-overflow rounded-lg shadow-sm mb-5" data-ride="carousel">
+
+                            <div class="carousel-inner">
+
+                                <div class="carousel-item active">
+
+                                    <div class="gallery-slides-hover"></div>
+                                    <img class="d-block w-100" src="/images/imgs/@ViewBag.Blog.ImageUrlTwo" alt="Second slide">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Blockquote -->
+                        <div class="row py-5">
+                            <div class="col-lg-10 offset-lg-1">
+
+                                <div class="text-center pb-3 mb-4">
+                                    <img src="/images/upload/landscape-ios.svg" alt="icon" data-width="60px" data-height="60px" style="width: 60px; height: 60px;">
+                                </div>
+
+                                <blockquote class="blockquote text-center mb-0">
+                                    <p class="mb-0">Fermentum enim nec gravida rutrum neque in elementum condimentum diam cursus ac ornare mauris ornare.</p>
+                                    <footer class="blockquote-footer mt-3">Pharetra Himenaeos</footer>
+                                </blockquote>
+
+                            </div>
+                        </div>
+
+                        <!-- Text content -->
+                        <div class="pt-4 pb-5">
+
+                            <p>@ViewBag.Blog.ContentTwo</p>
+
+
+
+                        </div>
+
+                        <!-- Share this -->
+                        <div class="d-flex align-items-center justify-content-center">
+
+                            <span class="badge badge-pill badge-light">Paylaşn</span>
+
+                            <div class="d-flex ml-2">
+                                <a href="#" target="_blank" class="d-flex align-items-center justify-content-center text-dark" data-width="40px" data-height="40px" style="width: 40px; height: 40px;"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" target="_blank" class="d-flex align-items-center justify-content-center text-dark" data-width="40px" data-height="40px" style="width: 40px; height: 40px;"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank" class="d-flex align-items-center justify-content-center text-dark" data-width="40px" data-height="40px" style="width: 40px; height: 40px;"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" target="_blank" class="d-flex align-items-center justify-content-center text-dark" data-width="40px" data-height="40px" style="width: 40px; height: 40px;"><i class="fab fa-pinterest-p"></i></a>
+                                <a href="#" target="_blank" class="d-flex align-items-center justify-content-center text-dark" data-width="40px" data-height="40px" style="width: 40px; height: 40px;"><i class="fas fa-paper-plane"></i></a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related news section -->
+        <!-- Comments section -->
+
+
+    </div>
+
+
+

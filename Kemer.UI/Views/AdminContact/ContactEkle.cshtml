@@ -1,0 +1,276 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model Contact
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">iLETİŞİM BİLGİLERİNİ EKLEME SAYFASI</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    @if (ViewBag.state == "update") { 
+<form role="form" asp-action="ContactGuncelle" asp-controller="AdminContact" enctype="multipart/form-data">
+    <div class="card-body">
+        <div class="form-group">
+            <label>ADRES GİRİNİZ</label>
+            <textarea class="form-control" asp-for="Address" rows="3" placeholder="Adres ..."></textarea>
+            <span asp-validation-for="Address" style="color:crimson"></span>
+        </div>
+
+        <div class="form-group">
+            <label>TELEFON-1 GİRİNİZ</label>
+            <div class="input-group" >
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                </div>
+                <input type="text" class="form-control"  id="phone" asp-for="PhoneOne">
+
+            </div>
+            <span asp-validation-for="PhoneOne" style="color:crimson"></span>
+        </div>
+
+        <div class="form-group">
+            <label>TELEFON-2 GİRİNİZ</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                </div>
+                <input type="text" class="form-control" asp-for="PhoneOne" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" im-insert="true">
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label for="exampleInputEmail1">EMAİL-1 GİRİNİZ</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                </div>
+                <input type="email" class="form-control" asp-for="EmailOne" placeholder="email-1 giriniz">
+            </div>
+            <span asp-validation-for="EmailOne" style="color:crimson"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">EMAİL2 GİRİNİZ</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                </div>
+                <input type="email" class="form-control" asp-for="EmailTwo" placeholder="email-2 giriniz">
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">TWİTTER GİRİNİZ</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fab fa-twitter"></i></span>
+                </div>
+                <input type="text" class="form-control" asp-for="Twitter" placeholder="twitter link giriniz">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">İNSTAGRAM GİRİNİZ</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fab fa-instagram"></i></span>
+                </div>
+                <input type="text" class="form-control" asp-for="Instagram" placeholder="instaram link giriniz">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">FACEBOOK GİRİNİZ</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fab fa-facebook-square"></i></span>
+                </div>
+                <input type="text" class="form-control" asp-for="Facebook" placeholder="facebook link giriniz">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">YOUTUBE GİRİNİZ</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fab fa-youtube"></i></span>
+                </div>
+                <input type="text" class="form-control" asp-for="Youtube" placeholder="youtube link giriniz">
+            </div>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            <label>WEBSİTE GİRİNİZ</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                </div>
+                <input type="text" class="form-control" asp-for="WebSite" placeholder="webi sitesi giriniz">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">GOOGLE HARİTA LİNKİ GİRİNİZ</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                </div>
+                <input type="text" class="form-control" asp-for="MapLink" placeholder="harita giriniz">
+
+            </div>
+            <span asp-validation-for="MapLink" style="color:crimson"></span>
+        </div>
+
+        <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+
+    </div>
+
+    <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">iLETİŞİM BİLGİLERİNİ GUNCELLE</button>
+    </div>
+</form>}
+    else
+    {
+        <form role="form" asp-action="ContactEkle" asp-controller="AdminContact" enctype="multipart/form-data">
+            <div class="card-body">
+                <div class="form-group">
+                    <label>ADRES GİRİNİZ</label>
+                    <textarea class="form-control" asp-for="Address" rows="3" placeholder="Adres ..."></textarea>
+                    <span asp-validation-for="Address" style="color:crimson"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>TELEFON-1 GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        </div>
+                        <input type="tel" class="form-control" asp-for="PhoneOne" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" im-insert="true">
+
+                    </div>
+                    <span asp-validation-for="PhoneOne" style="color:crimson"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>TELEFON-2 GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        </div>
+                        <input type="tel" class="form-control" asp-for="PhoneTwo" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" im-insert="true">
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="exampleInputEmail1">EMAİL-1 GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="EmailOne" placeholder="email-1 giriniz">
+                    </div>
+                    <span asp-validation-for="EmailOne" style="color:crimson"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">EMAİL2 GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="EmailTwo" placeholder="email-2 giriniz">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">TWİTTER GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fab fa-twitter"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="Twitter" placeholder="twitter link giriniz">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">İNSTAGRAM GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fab fa-instagram"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="Instagram" placeholder="instaram link giriniz">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">FACEBOOK GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fab fa-facebook-square"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="Facebook" placeholder="facebook link giriniz">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">YOUTUBE GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fab fa-youtube"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="Youtube" placeholder="youtube link giriniz">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">WEBSİTE GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="WebSite" placeholder="webi sitesi giriniz">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">GOOGLE HARİTA LİNKİ GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="MapLink" placeholder="harita giriniz">
+
+                    </div>
+                    <span asp-validation-for="MapLink" style="color:crimson"></span>
+                </div>
+
+                <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+
+            </div>
+
+            <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">İLETİŞİM BİLGİLERİNİ EKLE</button>
+            </div>
+        </form>
+    }
+
+</div>
+
+
+

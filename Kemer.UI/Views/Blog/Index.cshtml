@@ -1,0 +1,174 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+@model List<Blog>
+
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Kurumsam Web Sitesi">
+        <meta name="keywords" content="Kurumsal, Bloglar, Dimaik web Sitesi nedir">
+        <meta name="author" content="Uygulamabu">
+
+        <meta name="robots" content="index, archive">
+
+        <title>Bloglar</title>
+    </head>
+    <body>
+
+
+        <div class="w-100">
+
+            <div class="d-flex flex-column w-100">
+                <div class="page-title d-flex align-items-center bg-image py-5" data-img-src="/images/upload/page-title-bg-13.jpg" style="background-image: url(&quot;/images/upload/page-title-bg-13.jpg&quot;);">
+                    <div class="container page-title-container">
+                        <div class="row py-5">
+                            <div class="col text-center">
+
+                                <h1 class="display-3 font-weight-800 text-white mb-1">
+                                    Bloglar
+                                </h1>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="bg-primary py-4 mt-up50 rounded-xl shadow-lg">
+
+                            <div data-height="6px" style="height: 6px;"></div>
+
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb breadcrumb-light-2 justify-content-center mb-0">
+                                    <li class="breadcrumb-item text-uppercase"><a href="#">Homepage</a></li>
+                                    <li class="breadcrumb-item text-uppercase active" aria-current="page">Bloglar</li>
+                                </ol>
+                            </nav>
+
+                            <div data-height="6px" style="height: 6px;"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="main-content pb-0">
+
+            <!-- Blog Masonry -->
+            <div class="section py-5">
+                <div class="container">
+
+                    <div class="row pb-5 mb-5">
+                        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
+                            <div class="text-center">
+
+                                <h2 class="h1 section-title-3 font-weight-800">Bloglar</h2>
+
+                               
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col">
+
+                            <!-- Masonry blog filter -->
+                            <div class="grid-item-filter mb-5" data-target="#masonryBlog">
+                                <ul class="nav nav-pills justify-content-center">
+                                    <li class="nav-item mb-2">
+                                        <a class="nav-link active" href="#" data-filter=".cat-all">All categories</a>
+                                    </li>
+                                    @foreach (var item in @ViewBag.BlogCategory)
+                                    {
+
+                                    <li class="nav-item mb-2">
+                                        <a class="nav-link" href="#" data-filter=".@item.BlogCategoryName" accesskey="g">
+
+                                            @item.BlogCategoryName
+                                        </a>
+                                    </li>
+
+                                    }
+                                   
+
+                                </ul>
+                            </div>
+
+                            <!-- Masonry blog container -->
+                            <div id="masonryBlog" class="row grid-item-layout blog-container mb-3" data-gutter="32" data-layout-mode="masonry" style="margin-left: -16px; margin-right: -16px; position: relative; height: 3635.96px;">
+
+                             
+
+                                <!-- Grid item -->
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-md-6 col-lg-4 grid-item cat-all @item.BlogCategory.BlogCategoryName" style="margin-bottom: 32px; padding-left: 16px; padding-right: 16px; position: absolute; left: 0px; top: 0px;">
+                                        <div class="card card-blog-entry border-0 plain-card">
+                                            <div class="card-blog-img hover-item hover-scale hover-uncaption">
+                                                <a  asp-action="Index" asp-controller="BlogDetail" asp-route-id="@item.Id">
+                                                    <div class="hover-transition">
+                                                        <div class="hover-down">
+                                                            <i class="fas fa-link fa-2x hover-icon"></i>
+                                                        </div>
+                                                    </div>
+                                                    <figure>
+                                                        <img class="img-fluid" src="/images/imgs/@item.ImageUrlOne" alt="Blog">
+                                                    </figure>
+                                                </a>
+                                            </div>
+                                            <div class="card-body pt-0">
+                                                <div class="category-btn">
+                                                    <a href="#" class="btn btn-round btn-sm btn-primary">@item.BlogCategory.BlogCategoryName</a>
+                                                </div>
+                                                <h5 class="font-weight-700 mt-3">
+                                                    <a href="#" class="text-dark-gray">@item.Header</a>
+                                                </h5>
+                                                <ul class="meta-entry">
+                                                    <li class="meta-entry-item">
+                                                        <a href="#">@item.CreateDate</a>
+                                                    </li>
+                                                    <li class="meta-entry-item">
+                                                        <a href="#">@item.AuthorName</a>
+                                                    </li>
+                                                </ul>
+                                                <p class="card-text">@item.ContentOne</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                }
+                                    <!-- Grid item -->
+
+
+                                </div>
+
+                            <!-- Pagination -->
+                          
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+       
+
+        </div>
+
+
+
+      
+
+    </body></html>
+

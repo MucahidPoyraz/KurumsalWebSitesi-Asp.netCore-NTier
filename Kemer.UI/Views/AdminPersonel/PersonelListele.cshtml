@@ -1,0 +1,101 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model List<Personel>
+
+@if (TempData["Ekleme"] != null)
+{
+
+<div class="alert success" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Ekleme"]
+</div>
+}
+
+@if (TempData["Guncellendi"] != null)
+{
+
+<div class="alert info" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Guncellendi"]
+</div>
+}
+
+@if (TempData["Silindi"] != null)
+{
+
+<div class="alert warning" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Silindi"]
+</div>
+}
+
+<div style="width:100%">
+    <a asp-action="PersonelEkle" asp-controller="AdminPersonel" class="btn btn-primary">Personel Ekle</a>
+    <a asp-action="DepartmentListele" asp-controller="AdminDepartment" class="btn btn-primary">Departmanlar</a>
+</div>
+<br />
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>PersonelNameSurname</th>
+                                <th>ImageUrlOne</th>
+                                <th>DepartmentId</th>
+                                <th>Content</th>
+
+                                <th>İŞLEMLER</th>
+
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                        <tbody>
+                            <tr>
+                                <td width="100" height="100" align="center"><img src="/images/imgs/@item.ImageUrlOne" height="100" width="100"></td>
+                                <td>@item.PersonelNameSurname</td>
+                                <td>@item.Department.DepartmanName</td>
+                                <td>@item.Content</td>
+
+                                <td>
+                                    <a asp-action="PersonelSil" asp-controller="AdminPersonel" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Silmek istediginize emin misiniz');">Personel Sil</a>
+                                    <a asp-action="PersonelGuncelle" asp-controller="AdminPersonel" asp-route-id="@item.Id" class="btn btn-info">Personel Guncelle</a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        }
+
+
+                        <tfoot>
+                            <tr>
+                                <th>PersonelNameSurname</th>
+                                <th>ImageUrlOne</th>
+                                <th>DepartmentId</th>
+                                <th>Content</th>
+
+                                <th>İŞLEMLER</th>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+    </div>
+</section>

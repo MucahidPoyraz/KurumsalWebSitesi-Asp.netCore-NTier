@@ -1,0 +1,105 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model List<Product>
+
+@if (TempData["Ekleme"] != null)
+{
+
+<div class="alert success" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Ekleme"]
+</div>
+}
+
+@if (TempData["Guncellendi"] != null)
+{
+
+<div class="alert info" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Guncellendi"]
+</div>
+}
+
+@if (TempData["Silindi"] != null)
+{
+
+<div class="alert warning" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Silindi"]
+</div>
+}
+
+<div style="width:100%">
+    <a asp-action="ProductEkle" asp-controller="AdminProduct" class="btn btn-primary">Ürün Ekle</a>
+    <a asp-action="ProductCategoryListele" asp-controller="AdminProductCategory" class="btn btn-secondary">Ürün Kategori Listele</a>
+</div>
+<br />
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>ImageUrlOne</th>
+                                <th>Kategori</th>
+                                <th>Header</th>
+                                <th>SubTitle</th>
+
+
+
+                                <th>İŞLEMLER</th>
+                                <th>DETAYLAR</th>
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                        <tbody>
+                            <tr>
+                                <td width="100" height="100" align="center"><img src="/images/imgs/@item.ImageUrlOne" height="100" width="100"></td>
+                                <td>@item.ProductCategory.ProductCategoryName</td>
+                                <td>@item.Header</td>
+                                <td>@item.SubTitle</td>
+
+
+                                <td>
+                                    <a asp-action="ProductSil" asp-controller="AdminProduct" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Silmek istediginize emin misiniz');">Ürün Sil</a>
+                                    <a asp-action="ProductGuncelle" asp-controller="AdminProduct" asp-route-id="@item.Id" class="btn btn-info">Ürün Guncelle</a>
+
+
+                                </td>
+                                <td><a asp-action="ProductSliderListele" asp-controller="AdminProductSlider" asp-route-id="@item.Id" class="btn btn-info">Ürün Detay</a></td>
+                            </tr>
+                        </tbody>
+                        }
+
+                        <tfoot>
+                            <tr>
+                                <th>ImageUrlOne</th>
+                                <th>Header</th>
+                                <th>SubTitle</th>
+
+
+                                <th>İŞLEMLER</th>
+                                <th>DETAYLAR</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+    </div>
+</section>

@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model ProductCategory
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">ÜRÜN KATEGORİ EKLEME SAYFASI</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    @if (ViewBag.state == "update") { <form asp-controller="AdminProductCategory" asp-action="ProductCategoryGuncelle" enctype="multipart/form-data">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="exampleInputEmail1">ÜRÜN KATEGORİ ADINI GİRİNİZ</label>
+            <input type="text" class="form-control" asp-for="ProductCategoryName" placeholder="ürün kategori adı">
+            <span asp-validation-for="ProductCategoryName" style="color:crimson"></span>
+        </div>
+
+    </div>
+
+    <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">ÜRÜN KATEGORİ GUNCELLE</button>
+    </div>
+</form>}
+    else
+    {
+        <form asp-controller="AdminProductCategory" asp-action="ProductCategoryEkle">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">ÜRÜN KATEGORİ ADINI GİRİNİZ</label>
+                    <input type="text" class="form-control" asp-for="ProductCategoryName" placeholder="ürün kategori adı">
+                    <span asp-validation-for="ProductCategoryName" style="color:crimson"></span>
+                </div>
+
+            </div>
+
+            <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">ÜRÜN KATEGORİ EKLE</button>
+            </div>
+        </form>
+    }
+
+</div>

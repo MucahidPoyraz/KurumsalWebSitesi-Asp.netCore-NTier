@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model List<WhoWeAre>
+@if (TempData["Ekleme"] != null)
+{
+
+<div class="alert success" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Ekleme"]
+</div>
+}
+
+@if (TempData["Guncellendi"] != null)
+{
+
+<div class="alert info" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Guncellendi"]
+</div>
+}
+
+@if (TempData["Silindi"] != null)
+{
+
+<div class="alert warning" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Silindi"]
+</div>
+}
+
+
+<div style="width:100%">
+    <a asp-action="WhoWeAreEkle" asp-controller="AdminWhoWeAre" class="btn btn-primary">Biz Kimiz Ekle</a>
+    </div>
+<br />
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+
+                                <th>ImageUrl</th>
+                                <th>Header</th>
+                                <th>Content</th>
+
+                                <th>İŞLEMLER</th>
+
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                        <tbody>
+                            <tr>
+                                <td width="100" height="100" align="center"><img src="/images/imgs/@item.ImageUrl" height="100" width="100"></td>
+                                <td>@item.Header</td>
+                                <td>@item.Content</td>
+                                <td>
+                                    <a asp-action="WhoWeAreSil" asp-controller="AdminWhoWeAre" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Silmek istediginize emin misiniz');">Biz Kimiz Sil</a>
+                                    <a asp-action="WhoWeAreGuncelle" asp-controller="AdminWhoWeAre" asp-route-id="@item.Id" class="btn btn-info">Biz Kimiz Guncelle</a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        }
+
+                        <tfoot>
+                            <tr>
+                                <th>ImageUrl</th>
+                                <th>Header</th>
+                                <th>Content</th>
+
+                                <th>İŞLEMLER</th>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+    </div>
+</section>

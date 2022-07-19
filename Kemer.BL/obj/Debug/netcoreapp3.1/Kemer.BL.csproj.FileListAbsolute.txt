@@ -1,0 +1,14 @@
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\obj\Debug\netcoreapp3.1\Kemer.BL.csprojAssemblyReference.cache
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\obj\Debug\netcoreapp3.1\Kemer.BL.AssemblyInfoInputs.cache
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\obj\Debug\netcoreapp3.1\Kemer.BL.AssemblyInfo.cs
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\obj\Debug\netcoreapp3.1\Kemer.BL.csproj.CoreCompileInputs.cache
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\bin\Debug\netcoreapp3.1\Kemer.Dal.dll
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\bin\Debug\netcoreapp3.1\Kemer.Entities.dll
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\bin\Debug\netcoreapp3.1\Kemer.BL.deps.json
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\bin\Debug\netcoreapp3.1\Kemer.BL.dll
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\bin\Debug\netcoreapp3.1\Kemer.BL.pdb
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\bin\Debug\netcoreapp3.1\Kemer.Dal.pdb
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\bin\Debug\netcoreapp3.1\Kemer.Entities.pdb
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\obj\Debug\netcoreapp3.1\Kemer.BL.csproj.CopyComplete
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\obj\Debug\netcoreapp3.1\Kemer.BL.dll
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.BL\obj\Debug\netcoreapp3.1\Kemer.BL.pdb

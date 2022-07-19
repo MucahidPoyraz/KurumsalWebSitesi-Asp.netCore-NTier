@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model List<Referance>
+
+@if (TempData["Ekleme"] != null)
+{
+
+<div class="alert success" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Ekleme"]
+</div>
+}
+
+@if (TempData["Guncellendi"] != null)
+{
+
+<div class="alert info" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Guncellendi"]
+</div>
+}
+
+@if (TempData["Silindi"] != null)
+{
+
+<div class="alert warning" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Silindi"]
+</div>
+}
+
+<div style="width:100%"><a asp-action="ReferanceEkle" asp-controller="AdminReferance" class="btn btn-primary">Referans Ekle</a></div>
+<br />
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>IconUrl</th>
+
+                                <th>İŞLEMLER</th>
+
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                        <tbody>
+                            <tr>
+                                <td width="100" height="100" align="center" style="background-color:black"><img src="/images/imgs/@item.IconUrl" height="100" width="100"></td>
+
+                                <td>
+                                    <a asp-action="ReferanceSil" asp-controller="AdminReferance" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Silmek istediginize emin misiniz');">Referans Sil</a>
+                                    <a asp-action="ReferanceGuncelle" asp-controller="AdminReferance" asp-route-id="@item.Id" class="btn btn-info">Referans Guncelle</a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        }
+
+
+
+                        <tfoot>
+                            <tr>
+                                <th>IconUrl</th>
+
+                                <th>İŞLEMLER</th>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+    </div>
+</section>

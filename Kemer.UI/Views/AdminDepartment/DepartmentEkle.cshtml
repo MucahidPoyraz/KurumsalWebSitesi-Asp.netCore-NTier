@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model Department
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">DEPARTMAN EKLEME SAYFASI</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    @if (ViewBag.state == "update") {
+<form asp-controller="AdminDepartment" asp-action="DepartmentGuncelle" enctype="multipart/form-data">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="exampleInputEmail1">DEPARTMAN ADI</label>
+            <input type="text" class="form-control" asp-for="DepartmanName" placeholder="departman adı">
+            <span asp-validation-for="DepartmanName" style="color:crimson"></span>
+        </div>
+
+    </div>
+
+    <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">DEPARTMAN GUNCELLE</button>
+    </div>
+</form>}
+    else
+    {
+        <form asp-controller="AdminDepartment" asp-action="DepartmentEkle" enctype="multipart/form-data">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">DEPARTMAN ADI</label>
+                    <input type="text" class="form-control" asp-for="DepartmanName" placeholder="departman adı">
+                    <span asp-validation-for="DepartmanName" style="color:crimson"></span>
+                </div>
+
+            </div>
+
+            <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">DEPARTMAN EKLE</button>
+            </div>
+        </form>
+    }
+
+</div>

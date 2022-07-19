@@ -1,0 +1,9 @@
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Entities\bin\Release\netcoreapp3.1\Kemer.Entities.deps.json
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Entities\bin\Release\netcoreapp3.1\Kemer.Entities.dll
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Entities\bin\Release\netcoreapp3.1\Kemer.Entities.pdb
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Entities\obj\Release\netcoreapp3.1\Kemer.Entities.csprojAssemblyReference.cache
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Entities\obj\Release\netcoreapp3.1\Kemer.Entities.AssemblyInfoInputs.cache
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Entities\obj\Release\netcoreapp3.1\Kemer.Entities.AssemblyInfo.cs
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Entities\obj\Release\netcoreapp3.1\Kemer.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Entities\obj\Release\netcoreapp3.1\Kemer.Entities.dll
+C:\Users\Five Ajans\source\repos\Kemer\Kemer.Entities\obj\Release\netcoreapp3.1\Kemer.Entities.pdb

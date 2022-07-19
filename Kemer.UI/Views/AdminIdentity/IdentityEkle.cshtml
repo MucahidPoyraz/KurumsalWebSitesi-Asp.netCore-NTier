@@ -1,0 +1,148 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model Identity
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">KULLANICI EKLEME SAYFASI</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    @if (ViewBag.state == "update") 
+    { 
+        <form asp-controller="AdminIdentity" asp-action="IdentityGuncelle" enctype="multipart/form-data">
+                                          <div class="card-body">
+                                              <div class="form-group">
+                                                  <label for="exampleInputEmail1">KULLANICI AD SOYAD GİRİNİZ</label>
+                                                  <div class="input-group">
+                                                      <div class="input-group-prepend">
+                                                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                      </div>
+                                                      <input type="text" class="form-control" asp-for="UserNameSurname" placeholder="kullanıcı ad soyad giriniz">
+                                                      <span asp-validation-for="UserNameSurname" style="color:crimson"></span>
+                                                  </div>
+                                              </div>
+
+                                              <div class="form-group">
+                                                  <label for="exampleInputEmail1">EMAİL GİRİNİZ</label>
+                                                  <div class="input-group">
+                                                      <div class="input-group-prepend">
+                                                          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                      </div>
+                                                      <input type="email" class="form-control" asp-for="Email" placeholder="email giriniz">
+                                                      <span asp-validation-for="Email" style="color:crimson"></span>
+                                                  </div>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label for="exampleInputEmail1">PAROLA GİRİNİZ</label>
+                                                  <div class="input-group">
+                                                      <div class="input-group-prepend">
+                                                          <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                                      </div>
+                                                      <input type="password" class="form-control" asp-for="Password" placeholder="parola giriniz">
+                                                      <span asp-validation-for="Password" style="color:crimson"></span>
+                                                  </div>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label for="exampleInputEmail1" onchange="PreviewImage();">RESİM SEÇİNİZ</label>
+                                                  <input type="text" asp-for="ImageUrl" value="@Model.ImageUrl" name="ImageUrl" hidden>
+                                                  <input type="file" class="form-control uploadImage" asp-for="ImageUrl" id="ImageUrl" placeholder="resim seçiniz" onchange='openFile(event)'>
+                                                  <div>
+                                                      <img id='output' style="width : 100px;height:100px" src="/images/imgs/@Model.ImageUrl"/>
+                                                  </div>
+                                                  <span id="error-message" class="validation-error-label"></span>
+                                                  <span asp-validation-for="ImageUrl" style="color:crimson"></span>
+                                              </div>
+
+                                              <div class="form-group">
+                                                  <label for="exampleInputEmail1">WEB SİTENİZİ GİRİNİZ</label>
+                                                  <div class="input-group">
+                                                      <div class="input-group-prepend">
+                                                          <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                                                      </div>
+                                                      <input type="text" class="form-control" asp-for="WebSitesi" placeholder="Web siteniizin tam adresini giriniz">
+                                                      <span asp-validation-for="WebSitesi" style="color:crimson"></span>
+                                                  </div>
+                                              </div>
+
+                                              <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+                                              <!-- /.card-body -->
+
+                                              <div class="card-footer">
+                                                  <button type="submit" class="btn btn-primary">KULLANICI GUNCELLE</button>
+                                              </div>
+                                          </div>
+                                       </form>}
+    else
+    {
+        <form asp-controller="AdminIdentity" asp-action="IdentityEkle" enctype="multipart/form-data">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">KULLANICI AD SOYAD GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="UserNameSurname" placeholder="kullanıcı ad soyad giriniz">
+                        <span asp-validation-for="UserNameSurname" style="color:crimson"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">EMAİL GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="email" class="form-control" asp-for="Email" placeholder="email giriniz">
+                        <span asp-validation-for="Email" style="color:crimson"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">PAROLA GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" asp-for="Password" placeholder="parola giriniz">
+                        <span asp-validation-for="Password" style="color:crimson"></span>
+                    </div>
+                </div>
+              
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1" onchange="PreviewImage();">RESİM SEÇİNİZ</label>
+
+                    <input type="file" class="form-control uploadImage" asp-for="ImageUrl" id="ImageUrl" placeholder="resim seçiniz" onchange='openFile(event)'>
+                    <div>
+                        <img id='output' style="width : 100px;height:100px" />
+                    </div>
+                    <span id="error-message" class="validation-error-label"></span>
+                    <span asp-validation-for="ImageUrl" style="color:crimson"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">WEB SİTENİZİ GİRİNİZ</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="WebSitesi" placeholder="Web siteniizin tam adresini giriniz">
+                        <span asp-validation-for="WebSitesi" style="color:crimson"></span>
+                    </div>
+                </div>
+
+                <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">KULLANICI EKLE</button>
+                </div>
+            </div>
+        </form>
+    }
+
+</div>
+

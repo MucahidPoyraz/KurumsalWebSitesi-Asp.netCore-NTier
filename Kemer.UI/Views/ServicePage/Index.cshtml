@@ -1,0 +1,224 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+@model List<Service>
+
+<body>
+
+
+    <div class="d-flex flex-column w-100">
+        <div class="page-title d-flex align-items-center bg-image py-5" data-img-src="/images/upload/page-title-bg-05.jpg" style="background-image: url(&quot;/images/upload/page-title-bg-05.jpg&quot;);">
+            <div class="container page-title-container">
+                <div class="row py-5">
+                    <div class="col text-center">
+
+                        <h1 class="display-3 font-weight-800 text-white mb-0">
+                            Hizmetler
+                        </h1>
+
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb breadcrumb-light-2 justify-content-center mb-0">
+                                <li class="breadcrumb-item text-uppercase"><a href="#">Homepage</a></li>
+                                <li class="breadcrumb-item text-uppercase active" aria-current="page">Hizmetler</li>
+                            </ol>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content py-0">
+
+        <!-- Blockquote section -->
+        <div class="section bg-indigo py-5">
+            <div class="container">
+                <div class="row my-4">
+                    <div class="col-lg-8 offset-lg-2">
+                        <blockquote class="blockquote blockquote-light-2 text-center mb-0">
+                            <p class="mb-0">Sizler için en iyi hizmetleri sunuyoruz</p>
+
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services section -->
+        <div class="section py-5">
+            <div class="container">
+
+                <div data-height="32px" style="height: 32px;"></div>
+
+                <div class="row my-5">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-6 col-lg-4">
+
+                            <!-- Service item -->
+                            <div class="card info-box-1 border-0 shadow text-center">
+                                <img class="card-img" src="/images/imgs/@item.ImageUrlOne" alt="image">
+                                <div class="card-img-overlay d-flex align-items-center">
+                                    <div class="w-100">
+                                        <div class="info-box-caption">
+                                            <div class="mr-auto ml-auto bg-indigo rounded-circle mb-4 d-flex align-items-center justify-content-center" data-width="54px" data-height="54px" style="width: 54px; height: 54px;">
+                                                <img src="/images/imgs/@item.ServiceCategory.CategoryIcon" alt="icon" data-width="28px" data-height="28px" style="width: 28px; height: 28px;">
+                                            </div>
+                                            <h5 class="card-title text-white font-weight-700 pt-1 mb-0">@item.HeaderOne</h5>
+                                            <p class="card-text text-white-75">@item.SubtitleOne</p>
+                                        </div>
+                                        <div class="info-box-btn" style="margin-bottom: -66.6667px;">
+                                            <div class="info-box-btn-inner">
+                                                <a asp-action="Index" asp-controller="ServiceDetail" asp-route-id="@item.Id" role="button" class="btn btn-round btn-outline-light mt-4 mb-0">Detaylara Gİt</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Contact form section -->
+        <div class="section pt-5 bg-image" data-img-src="/images/upload/services-cta-bg-01.jpg" style="background-image: url(&quot;/images/upload/services-cta-bg-01.jpg&quot;);">
+            <div class="container">
+
+                <div class="row my-5">
+                    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                        <div class="text-center mt-2 mb-md-4">
+                            <h2 class="h1 section-title-3 title-light-1 font-weight-800">Talep Gönderin</h2>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="bg-indigo rounded-ultra shadow-lg px-4 py-5 p-md-5 mt-5 mt-md-0">
+                            <div class="row mt-5 mb-4">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <form class="form-light-2 px-md-4 px-lg-0 px-xl-4" asp-action="ServiceRequest" asp-controller="ServicePage" onsubmit="return checkForm(this);">
+                                        <div class="form-row">
+
+                                            <div class="col-lg-6">
+                                                <div class="px-1 pb-3 mb-3">
+                                                    <div class="input-group input-group-lg input-group-round">
+                                                        <div class="input-group-inner">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text input-group-icon"><i class="far fa-user"></i></span>
+                                                            </div>
+                                                            <input type="text" name="Name" class="form-control form-control-lg" required placeholder="Your name">
+                                                            <div class="input-focus-bg"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="px-1 pb-3 mb-3">
+                                                    <div class="input-group input-group-lg input-group-round">
+                                                        <div class="input-group-inner">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text input-group-icon"><i class="far fa-user"></i></span>
+                                                            </div>
+                                                            <input type="text" name="Surname" class="form-control form-control-lg" required placeholder="Your surname">
+                                                            <div class="input-focus-bg"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="px-1 pb-3 mb-3">
+                                                    <div class="input-group input-group-lg input-group-round">
+                                                        <div class="input-group-inner">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text input-group-icon"><i class="far fa-envelope"></i></span>
+                                                            </div>
+                                                            <input type="text" name="Email" class="form-control form-control-lg" required placeholder="Email address">
+                                                            <div class="input-focus-bg"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-lg-6">
+                                                <div class="px-1 pb-3 mb-3">
+                                                    <div class="input-group input-group-lg input-group-round">
+                                                        <div class="input-group-inner">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text input-group-icon"><i class="fas fa-mobile-alt"></i></span>
+                                                            </div>
+                                                            <input type="tel" name="Phone" class="form-control form-control-lg" required placeholder="Phone number">
+                                                            <div class="input-focus-bg"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 offset-lg-3">
+                                                <div class="px-1">
+                                                    <div class="px-3">
+
+                                                        <div class="form-group row d-flex justify-content-center">
+
+                                                            <label for="agreeTerms" style="color:aliceblue">
+                                                                <input type="checkbox" name="myCheck" id="agreeTerms" required><a asp-action="Index" asp-controller="KVKK" target="_blank" class="text-light font-weight-500">&nbsp;&nbsp;Kişisel Verileri Koruma Kanunu</a>'nu okudum ve onaylıyorum.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+                                            <div class="col-lg-6 offset-lg-3">
+                                                <div class="px-1">
+                                                    <button type="submit" onclick="myFunction()" class="btn btn-lg btn-round btn-block btn-dark">Talep Gönder</button>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Testimonials section -->
+        <!-- Clients section -->
+        <!-- Modal login -->
+
+
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementByname("myCheck").required;
+            document.getElementById("demo").innerHTML = x;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model Blog
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">BLOG EKLEME SAYFASI</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    @if (ViewBag.state == "update")
+    {<form asp-controller="AdminBlog" asp-action="BlogGuncelle" enctype="multipart/form-data">
+         <div class="card-body">
+
+             <div class="form-group">
+                 <label>KATEGORİ SEÇİNİZ</label>
+                 
+                @Html.DropDownListFor(x=>x.BlogCategoryId,(List<SelectListItem>)ViewBag.BlogCategory, new {@class = "form-control"})
+
+                 <span asp-validation-for="BlogCategoryId" style="color:crimson"></span>
+             </div>
+
+             <div class="form-group">
+                 <label for="exampleInputEmail1">YAZAR ADI</label>
+                 <input type="text" class="form-control" asp-for="AuthorName" placeholder="Yazar adı giriniz">
+                 <span asp-validation-for="AuthorName" style="color:crimson"></span>
+             </div>
+
+             <div class="form-group">
+                 <label for="exampleInputEmail1">BAŞLIK</label>
+                 <input type="text" class="form-control" asp-for="Header" placeholder="Başlik giriniz">
+                 <span asp-validation-for="Header" style="color:crimson"></span>
+             </div>
+             <div class="form-group">
+                 <label for="exampleInputPassword1">ALT BAŞLİK</label>
+                 <input type="text" asp-for="SubTitle" class="form-control" placeholder="Alt başlik giriniz">
+                 <span asp-validation-for="SubTitle" style="color:crimson"></span>
+             </div>
+             <div class="form-group">
+                 <label for="exampleInputEmail1" onchange="PreviewImage();">RESİM SEÇİNİZ</label>
+                 <input type="text" asp-for="ImageUrlOne" value="@Model.ImageUrlOne" name="ImageUrlOne" hidden>
+                 <input type="file" class="form-control uploadImage" asp-for="ImageUrlOne" id="ImageUrlOne" onchange='openFile(event)' placeholder="resim seçiniz">
+                 <div>
+                     <img id='output' style="width : 100px;height:100px" src="~/images/imgs/@Model.ImageUrlOne" />
+                 </div>
+                 <span asp-validation-for="ImageUrlOne" style="color:crimson"></span>
+             </div>
+
+             <div class="form-group">
+                 <label for="exampleInputEmail1" onchange="PreviewImagetwo();">RESİM SEÇİNİZ</label>
+                 <input type="text" asp-for="ImageUrlTwo" value="@Model.ImageUrlTwo" name="ImageUrlTwo" hidden>
+                 <input type="file" class="form-control uploadImagetwo" asp-for="ImageUrlTwo" id="ImageUrlTwo" placeholder="resim seçiniz" onchange='twoopenFile(event)'>
+                 <div>
+                     <img id='outputtwo' style="width : 100px;height:100px" src="/images/imgs/@Model.ImageUrlTwo" />
+                 </div>
+                 <span id="error-messagetwo" class="validation-error-label"></span>
+                 <span asp-validation-for="ImageUrlTwo" style="color:crimson"></span>
+             </div>
+
+             <div class="form-group">
+                 <label>İÇERİK-1 GİRİNİZ</label>
+                 <textarea class="form-control" rows="3" asp-for="ContentOne" placeholder="İçerik-1..."></textarea>
+             </div>
+
+             <div class="form-group">
+                 <label>İÇERİK-2 GİRİNİZ</label>
+                 <textarea class="form-control" asp-for="ContentTwo" rows="3" placeholder="İçerik-2..."></textarea>
+                 <span asp-validation-for="ContentTwo" style="color:crimson"></span>
+             </div>
+
+         </div>
+
+            <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">BLOG GUNCELLE</button>
+            </div>
+        </form> }
+    else
+    {
+        <form asp-controller="AdminBlog" asp-action="BlogEkle" enctype="multipart/form-data">
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label>KATEGORİ SEÇİNİZ</label>
+                    <select class="custom-select" asp-items="@ViewBag.BlogCategory" name="@(nameof(ViewBag.BlogCategoryId))">
+                        <option value="0">Biri Blog seçiniz</option>
+                    </select>
+
+                    <span asp-validation-for="BlogCategoryId" style="color:crimson"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">YAZAR ADI</label>
+                    <input type="text" class="form-control" asp-for="AuthorName" placeholder="Yazar adı giriniz">
+                    <span asp-validation-for="AuthorName" style="color:crimson"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">BAŞLIK</label>
+                    <input type="text" class="form-control" asp-for="Header" placeholder="Başlik giriniz">
+                    <span asp-validation-for="Header" style="color:crimson"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">ALT BAŞLİK</label>
+                    <input type="text" asp-for="SubTitle" class="form-control" placeholder="Alt başlik giriniz">
+                    <span asp-validation-for="SubTitle" style="color:crimson"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" onchange="PreviewImage();">RESİM SEÇİNİZ</label>
+
+                    <input type="file" class="form-control uploadImage" asp-for="ImageUrlOne" id="ImageUrlOne" placeholder="resim seçiniz" onchange='openFile(event)'>
+                    <div>
+                        <img id='output' style="width : 100px;height:100px" />
+                    </div>
+
+                        <span id="error-message" class="validation-error-label"></span>
+                  
+                </div>               
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1" onchange="PreviewImagetwo();">RESİM SEÇİNİZ</label>
+                   
+                    <input type="file" class="form-control uploadImagetwo" asp-for="ImageUrlTwo" id="ImageUrlTwo" placeholder="resim seçiniz" onchange='twoopenFile(event)'>
+                    <div>
+                        <img id='outputtwo' style="width : 100px;height:100px"  />
+                    </div>
+                    <span id="error-messagetwo" class="validation-error-label"></span>
+                    <span asp-validation-for="ImageUrlTwo" style="color:crimson"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>İÇERİK-1 GİRİNİZ</label>
+                    <textarea class="form-control" rows="3" asp-for="ContentOne" placeholder="İçerik-1..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>İÇERİK-2 GİRİNİZ</label>
+                    <textarea class="form-control" asp-for="ContentTwo" rows="3" placeholder="İçerik-2..."></textarea>
+                    <span asp-validation-for="ContentTwo" style="color:crimson"></span>
+                </div>
+
+            </div>
+
+            <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">BLOG EKLE</button>
+            </div>
+        </form>
+    }
+
+</div>
+
+<script>
+
+   
+
+</script>

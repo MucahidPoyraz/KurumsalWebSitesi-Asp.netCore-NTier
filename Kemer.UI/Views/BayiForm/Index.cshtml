@@ -1,0 +1,191 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="bg-image bg-fixed" data-img-src="/images/upload/access-page-bg-01.jpg" style="background-image: url(&quot;/images/upload/access-page-bg-01.jpg&quot;);">
+
+    <!-- Preloader -->
+    <!-- Content -->
+    <br /> <br />
+    <div class="container-fluid">
+        <div class="row min-vh-100 align-content-between">
+
+            <div class="col-12">
+                <div class="row align-items-center py-4">
+
+
+
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+                            <div class="px-xl-4">
+                                <div class="bg-white rounded-ultra shadow-lg px-4 py-5 p-md-5">
+
+                                    <div class="mb-4 text-center">
+                                        <img src="/images/upload/register-03.svg" alt="Register" data-width="64px" data-height="64px" style="width: 64px; height: 64px;">
+                                    </div>
+
+                                    <div class="pb-1"></div>
+
+                                    <h3 class="section-title-4 text-center font-weight-800 mb-4">
+                                        BAYİ BAŞVURUSU
+
+                                    </h3>
+
+                                    <form asp-action="BayiKayıt" asp-controller="BayiForm">
+
+                                        <div class="input-group input-group-lg input-group-round mb-4">
+                                            <label class="text-uppercase px-3">KURUM ÜNVANI</label>
+                                            <div class="input-group-inner">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text input-group-icon"><i class="far fa-user"></i></span>
+                                                </div>
+                                                <input type="text" required name="Unvan" class="form-control form-control-lg" placeholder="Firma ünvanınızı giriniz...">
+                                                <div class="input-focus-bg"></div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="input-group input-group-lg input-group-round mb-4">
+                                            <label class="text-uppercase px-3">FAALİYET YILI</label>
+                                            <div class="input-group-inner">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text input-group-icon"><i class="fas fa-calendar"></i></span>
+                                                </div>
+                                                <input type="number" required name="FaaliyetYılı" class="form-control form-control-lg" placeholder="Örneğin; 2002">
+                                                <div class="input-focus-bg"></div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="input-group input-group-lg input-group-round mb-4">
+                                            <label class="text-uppercase px-3">KURUM YETKİLİ ADI</label>
+                                            <div class="input-group-inner">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text input-group-icon"><i class="far fa-user"></i></span>
+                                                </div>
+                                                <input type="text" required name="Ad" class="form-control form-control-lg" placeholder="İsim giriniz...">
+                                                <div class="input-focus-bg"></div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="input-group input-group-lg input-group-round mb-4">
+                                            <label class="text-uppercase px-3">SOYADI</label>
+                                            <div class="input-group-inner">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text input-group-icon"><i class="far fa-user"></i></span>
+                                                </div>
+                                                <input type="text" required name="Soyad" class="form-control form-control-lg" placeholder="Soyisim giriniz...">
+                                                <div class="input-focus-bg"></div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="input-group input-group-lg input-group-round mb-4">
+                                            <label class="text-uppercase px-3">E-MAİL</label>
+                                            <div class="input-group-inner">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text input-group-icon"><i class="far fa-envelope"></i></span>
+                                                </div>
+                                                <input type="email"   name="Email" class="form-control form-control-lg" placeholder="E-mail giriniz... Örneğin; cesureymen@gmail.com">
+                                                <div class="input-focus-bg"></div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="input-group input-group-lg input-group-round mb-4">
+                                            <label class="text-uppercase px-3">TELEFON</label>
+                                            <div class="input-group-inner">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text input-group-icon"><i class="fas fa-phone"></i></span>
+                                                </div>
+                                                <input type="tel" required name="Phone" class="form-control form-control-lg" placeholder="Örnegin; 0533 333 33 33">
+                                                <div class="input-focus-bg"></div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="input-group input-group-lg input-group-round mb-4">
+                                            <label class="text-uppercase px-3">ADRES</label>
+                                            <div class="input-group-inner">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text input-group-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                                </div>
+                                                <textarea name="Adress" required class="form-control form-control-lg" placeholder="Adersinizi belirtiniz.."></textarea>
+                                                <div class="input-focus-bg"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group input-group-lg input-group-round mb-4">
+                                            <label class="text-uppercase px-3">SEHİR</label>
+                                            <div class="input-group-inner">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text input-group-icon"><i class="fas fa-city"></i></span>
+                                                </div>
+                                                <input type="text" required name="Sehir" class="form-control form-control-lg" placeholder="Şehir giriniz...">
+                                                <div class="input-focus-bg"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group input-group-lg input-group-round mb-4">
+                                            <label class="text-uppercase px-3">WEB SİTESİ</label>
+                                            <div class="input-group-inner">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text input-group-icon"><i class="fas fa-globe"></i></span>
+                                                </div>
+                                                <input type="text"  name="WebSitesi" class="form-control form-control-lg" placeholder="web sitesi">
+                                                <div class="input-focus-bg"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3">
+                                            <div class="form-group custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" name="myCheck" id="agreeTerms" required>
+                                                <label class="custom-control-label" for="agreeTerms"><a asp-action="Index" asp-controller="KVKK" target="_blank" class="text-dark font-weight-500">Kişisel Verileri Krouma Kanunu</a>nu okudum ve onaylıyorum.</label>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" onclick="myFunction()" class="btn btn-lg btn-round btn-primary btn-block mb-0"><i class="fas fa-edit"></i>Başvuruyu gönder</button>
+
+                                        <div class="text-center my-3">
+
+                                        </div>
+
+
+
+                                        <label class="w-100 text-center py-2 mb-0">
+                                            Zaten bir bayim var <a asp-action="Index" asp-controller="Login">Giriş</a>
+                                        </label>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 pt-md-3">
+                <div class="text-center text-white-75 p-4 mt-md-1">
+                    <small>Copyright  <a href="#" class="text-light font-weight-600">yourdomain.com</a>. All Rights Reserved.</small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    function myFunction() {
+        var x = document.getElementByname("myCheck").required;
+        document.getElementById("demo").innerHTML = x;
+    }
+</script>

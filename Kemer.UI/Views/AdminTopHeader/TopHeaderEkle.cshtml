@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model TopHeader
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">ÜST HEADER EKLEME SAYFASI</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    @if (ViewBag.state == "update") 
+    {<form asp-controller="AdminTopHeader" asp-action="TopHeaderGuncelle" enctype="multipart/form-data">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="exampleInputEmail1">SLOGAN-1 GİRİNİZ</label>
+            <input type="text" class="form-control" asp-for="SloganOne" placeholder="slogan-1 giriniz">
+            <span asp-validation-for="SloganOne" style="color:crimson"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">SLOGAN-2 GİRİNİZ</label>
+            <input type="text" class="form-control" asp-for="SloganTwo" placeholder="slogan-2 giriniz">
+            <span asp-validation-for="SloganTwo" style="color:crimson"></span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">LİNK GİRİNİZ</label>
+            <input type="text" class="form-control" asp-for="Link" placeholder="link giriniz">
+            <span asp-validation-for="Link" style="color:crimson"></span>
+        </div>
+    </div>
+
+    <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">ÜST HEADER GUNCELLE</button>
+    </div>
+</form> }
+    else
+    {
+        <form asp-controller="AdminTopHeader" asp-action="TopHeaderEkle" enctype="multipart/form-data">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">SLOGAN-1 GİRİNİZ</label>
+                    <input type="text" class="form-control" asp-for="SloganOne" placeholder="slogan-1 giriniz">
+                    <span asp-validation-for="SloganOne" style="color:crimson"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">SLOGAN-2 GİRİNİZ</label>
+                    <input type="text" class="form-control" asp-for="SloganTwo" placeholder="slogan-2 giriniz">
+                    <span asp-validation-for="SloganTwo" style="color:crimson"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">LİNK GİRİNİZ</label>
+                    <input type="text" class="form-control" asp-for="Link" placeholder="link giriniz">
+                    <span asp-validation-for="Link" style="color:crimson"></span>
+                </div>
+
+
+
+            </div>
+
+            <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">ÜST HEADER EKLE</button>
+            </div>
+        </form>
+    }
+
+</div>

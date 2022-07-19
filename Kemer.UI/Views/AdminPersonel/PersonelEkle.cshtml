@@ -1,0 +1,103 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model Personel
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">PERSONEL EKLEME SAYFASI</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    @if (ViewBag.state == "update") {
+<form asp-controller="AdminPersonel" asp-action="PersonelGuncelle" enctype="multipart/form-data">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="exampleInputEmail1">PERSONEL ADI SOYADI</label>
+            <input type="text" class="form-control uploadImage" asp-for="PersonelNameSurname" id="exampleInputEmail1" placeholder="personel adı soyadı">
+            <span asp-validation-for="PersonelNameSurname" style="color:crimson"></span>
+        </div>
+        <div class="form-group">
+            <label>DEPARTMENT SEÇİNİZ</label>
+
+            @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.Department, new { @class = "form-control" })
+
+
+            <span asp-validation-for="DepartmentId" style="color:crimson"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1" onchange="PreviewImage();">RESİM SEÇİNİZ</label>
+            <input type="text" asp-for="ImageUrlOne" value="@Model.ImageUrlOne" name="ImageUrlOne" hidden>
+            <input type="file" class="form-control uploadImage" asp-for="ImageUrlOne" id="ImageUrlOne" placeholder="resim seçiniz" onchange='openFile(event)'>
+            <div>
+                <img id='output' style="width : 100px;height:100px" src="/images/imgs/@Model.ImageUrlOne"/>
+            </div>
+            <span id="error-message" class="validation-error-label"></span>
+            <span asp-validation-for="ImageUrlOne" style="color:crimson"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">İÇERİK GİRİNİZ</label>
+            <input type="text" class="form-control" asp-for="Content" id="exampleInputPassword1" placeholder="içerik giriniz">
+            <span asp-validation-for="Content" style="color:crimson"></span>
+        </div>
+
+    </div>
+
+    <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">PERSONEL GUNCELLE</button>
+    </div>
+</form>}
+    else
+    {
+        <form asp-controller="AdminPersonel" asp-action="PersonelEkle" enctype="multipart/form-data">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1" >PERSONEL ADI SOYADI</label>
+                    <input type="text" class="form-control" asp-for="PersonelNameSurname" id="exampleInputEmail1" placeholder="personel adı soyadı">
+                    <span asp-validation-for="PersonelNameSurname" style="color:crimson"></span>
+                </div>
+                <div class="form-group">
+                    <label>DEPARTMENT SEÇİNİZ</label>
+                  
+                        <select class="form-control" asp-items="@ViewBag.Department" name="@(nameof(ViewBag.DepartmentId))">
+                            <option value="0">Bir departman seçiniz</option>
+                        </select>
+              
+
+                    <span asp-validation-for="DepartmentId" style="color:crimson"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1" onchange="PreviewImage();">RESİM SEÇİNİZ</label>
+                    <input type="file" class="form-control uploadImage" asp-for="ImageUrlOne" id="ImageUrlOne" placeholder="resim seçiniz" onchange='openFile(event)'>
+                    <div>
+                        <img id='output' style="width : 100px;height:100px" />
+                    </div>
+                    <span id="error-message" class="validation-error-label"></span>
+                    <span asp-validation-for="ImageUrlOne" style="color:crimson"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">İÇERİK GİRİNİZ</label>
+                    <input type="text" class="form-control" asp-for="Content" id="exampleInputPassword1" placeholder="içerik giriniz">
+                    <span asp-validation-for="Content" style="color:crimson"></span>
+                </div>
+
+            </div>
+
+            <div class="text-danger text-center" asp-validation-summary="ModelOnly"></div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">PERSONEL EKLE</button>
+            </div>
+        </form>
+    }
+
+</div>

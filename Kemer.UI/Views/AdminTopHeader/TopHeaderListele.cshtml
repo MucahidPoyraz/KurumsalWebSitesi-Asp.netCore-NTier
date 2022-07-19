@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model List<TopHeader>
+
+@if (TempData["Ekleme"] != null)
+{
+
+<div class="alert success" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Ekleme"]
+</div>
+}
+
+@if (TempData["Guncellendi"] != null)
+{
+
+<div class="alert info" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Guncellendi"]
+</div>
+}
+
+@if (TempData["Silindi"] != null)
+{
+
+<div class="alert warning" id=mainAlertMessage>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    @TempData["Silindi"]
+</div>
+}
+
+<div style="width:100%">
+    <a asp-action="TopHeaderEkle" asp-controller="AdminTopHeader" class="btn btn-primary">Üst-Header Ekle</a>
+</div>
+<br />
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>SloganOne</th>
+                                <th>SloganTwo</th>
+                                <th>Link</th>
+
+                                <th>İŞLEMLER</th>
+
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                        <tbody>
+                            <tr>
+
+                                <td>@item.SloganOne</td>
+                                <td>@item.SloganTwo</td>
+                                <td>@item.Link</td>
+                                <td>
+                                    <a asp-action="TopHeaderSil" asp-controller="AdminTopHeader" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Silmek istediginize emin misiniz');">Üst Bar Sil</a>
+                                    <a asp-action="TopHeaderGuncelle" asp-controller="AdminTopHeader" asp-route-id="@item.Id" class="btn btn-info">Üst Bar Guncelle</a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        }
+
+                        <tfoot>
+                            <tr>
+                                <th>SloganOne</th>
+                                <th>SloganTwo</th>
+                                <th>Link</th>
+
+                                <th>İŞLEMLER</th>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+    </div>
+</section>

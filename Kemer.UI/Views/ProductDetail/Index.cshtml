@@ -1,0 +1,273 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+@model List<ProductSlider>
+
+
+<body>
+
+
+    <div class="main-content pb-0">
+
+        <!-- Portfolio content section -->
+        <div class="section pt-3">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-10 offset-lg-1">
+
+                        <!-- Author and Share -->
+                        <div class="row align-items-center mb-5">
+
+                            <div class="col-xl-6">
+                                <div class="d-xl-flex align-items-center text-center text-xl-left pb-3 pb-xl-0 mb-4 mb-xl-0">
+
+
+
+                                    <div class="pl-xl-4">
+                                        <h3 class="font-weight-800 mb-0">@ViewBag.Product.Header</h3>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <!-- Synced gallery -->
+                        <div class="gallery-sync carousel-nav-lg mb-5" data-dots="true" data-gutter="10" data-thumb-md="4" data-thumb-lg="7" data-thumb-xl="7">
+
+                            <!-- Main images -->
+
+                            <div class="gallery-sync-main arrow-nav-overflow" style="margin-bottom: 10px;">
+                                <div class="owl-carousel owl-loaded owl-drag">
+
+                                    <div class="owl-stage-outer">
+
+                                        <div class="owl-stage" transition: all 0.6s ease 0s; width: 7140px;">
+                                            @foreach (var item in Model)
+                                            {
+
+                                                <div class="owl-item" style="width: 510px;">
+                                                    <div class="gallery-sync-main-item rounded-lg">
+                                                        <img class="img-fluid" src="/images/imgs/@item.PruductImage" alt="Kaçkar Otel Balık">
+                                                    </div>
+                                                </div>
+
+                                            }
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="owl-nav disabled">
+                                        <button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>
+                                        <button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
+                                    </div>
+                                </div>
+
+                                <a class="carousel-control-prev" href="#">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+
+                            </div>
+
+                            <!-- Thumbnail images -->
+                            <div class="gallery-sync-thumb">
+                                <div class="owl-carousel owl-theme owl-loaded owl-drag">
+
+                                    <div class="owl-stage-outer">
+                                        <div class="owl-stage" transition: all 0.5s ease 0s; width: 2427px;">
+                                            @foreach (var item in Model)
+                                            {
+                                                <div class="owl-item" style="width: 163.333px; margin-right: 10px;">
+
+                                                    <div class="gallery-sync-thumb-item rounded-lg">
+                                                        <figure>
+                                                            <img class="img-fluid" src="/images/imgs/@item.PruductImage" alt="image">
+                                                        </figure>
+                                                    </div>
+
+                                                </div>
+                                            }
+
+
+                                        </div>
+                                    </div>
+                                    <div class="owl-nav disabled">
+                                        <button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>
+                                        <button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <br /> <br /> <br />
+
+                        <!-- Description -->
+                        <div class="pb-4">
+
+                            <p>@ViewBag.Product.Content</p>
+
+                        </div>
+
+                        <!-- Blockquote -->
+                        <div class="row py-5">
+                            <div class="col-lg-10 offset-lg-1">
+
+                                <div class="text-center pb-3 mb-4">
+                                    <img src="/images/upload/camera-ios.svg" alt="icon" data-width="60px" data-height="60px" style="width: 60px; height: 60px;">
+                                </div>
+
+                                <blockquote class="blockquote text-center mb-0">
+                                    <p class="mb-0">En kaliteli ürünler en uygun fiyatlar ile</p>
+
+                                </blockquote>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related works section -->
+        <!-- Call to action section -->
+
+
+
+        <div class="section pt-5 bg-image" data-img-src="/images/upload/about-us-cta-bg-02.jpg" style="background-image: url(&quot;/images/upload/about-us-cta-bg-02.jpg&quot;);">
+            <div class="container">
+                <div class="row mt-5 mt-md-0">
+                    <div class="col">
+
+                        <div class="d-none d-md-block" data-height="200px" style="height: 200px;"></div>
+
+                        <div class="bg-white rounded-ultra shadow-lg px-4 py-5 p-md-5 mt-5 mt-md-0">
+
+                            <div class="row my-4">
+                                <div class="col-md-10 offset-md-1 col-xl-8 offset-xl-2">
+                                    <div class="text-center mt-2 mb-4 my-md-4">
+                                        <h2 class="h1 section-title-3 font-weight-800 text-center">SİZİNLE İLETİŞİME GEÇELİM</h2>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <form class="px-md-4 px-lg-0 px-xl-4" asp-action="ProductRequest" asp-controller="ProductDetail">
+                                        <div class="form-row">
+
+                                            <div class="col-lg-6">
+                                                <div class="px-1 pb-3 mb-3">
+                                                    <div class="input-group input-group-lg input-group-round">
+                                                        <div class="input-group-inner">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text input-group-icon"><i class="far fa-user"></i></span>
+                                                            </div>
+                                                            <input type="text" name="Name" class="form-control form-control-lg" required placeholder="Your name">
+                                                            <div class="input-focus-bg"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="px-1 pb-3 mb-3">
+                                                    <div class="input-group input-group-lg input-group-round">
+                                                        <div class="input-group-inner">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text input-group-icon"><i class="far fa-user"></i></span>
+                                                            </div>
+                                                            <input type="text" name="Surname" class="form-control form-control-lg" required placeholder="Your surname">
+                                                            <div class="input-focus-bg"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="px-1 pb-3 mb-3">
+                                                    <div class="input-group input-group-lg input-group-round">
+                                                        <div class="input-group-inner">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text input-group-icon"><i class="far fa-envelope"></i></span>
+                                                            </div>
+                                                            <input type="email" name="Email" class="form-control form-control-lg" required placeholder="Email address">
+                                                            <div class="input-focus-bg"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="px-1 mb-5">
+                                                    <div class="input-group input-group-lg input-group-round">
+                                                        <div class="input-group-inner">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text input-group-icon"><i class="fas fa-mobile-alt"></i></span>
+                                                            </div>
+                                                            <input type="tel" name="Phone" class="form-control form-control-lg" required placeholder="Phone number">
+                                                            <div class="input-focus-bg"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 offset-lg-3">
+                                                <div class="px-1">
+                                                    <div class="px-3">
+
+                                                        <div class="form-group row d-flex justify-content-center">
+
+                                                            <label for="agreeTerms">
+                                                                <input type="checkbox" name="myCheck" id="agreeTerms" required><a asp-action="Index" asp-controller="KVKK" target="_blank" class="text-dark font-weight-500">&nbsp;&nbsp;Kişisel Verileri Krouma Kanunu</a>'nu okudum ve onaylıyorum.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-lg-6 offset-lg-3">
+                                                <div class="px-1">
+                                                    <button type="submit" onclick="myFunction()" class="btn btn-lg btn-round btn-block btn-indigo">Mesaj gönder</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myCheck").required;
+            document.getElementById("demo").innerHTML = x;
+        }
+    </script>
+</body>
